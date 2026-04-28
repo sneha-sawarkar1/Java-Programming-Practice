@@ -1,0 +1,15 @@
+public class FindLengthWithoutLength {
+    public static void main(String[] args) {
+        String str = "Hello World";
+
+        int count = 0;
+
+        // Convert string to char array
+        for (char ch : str.toCharArray()) {
+            count++;
+        }
+
+        System.out.println("String: " + str);
+        System.out.println("Length: " + count);
+    }
+}
