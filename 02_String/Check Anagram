@@ -1,0 +1,51 @@
+public class CheckAnagram {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+
+        // Step 1: check length
+        if (str1.length() != str2.length()) {
+            System.out.println("Not Anagram");
+            return;
+        }
+
+        // Step 2: convert to char arrays
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+
+        // Step 3: sort both arrays (basic bubble sort)
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = i + 1; j < arr1.length; j++) {
+
+                if (arr1[i] > arr1[j]) {
+                    char temp = arr1[i];
+                    arr1[i] = arr1[j];
+                    arr1[j] = temp;
+                }
+
+                if (arr2[i] > arr2[j]) {
+                    char temp = arr2[i];
+                    arr2[i] = arr2[j];
+                    arr2[j] = temp;
+                }
+            }
+        }
+
+        // Step 4: compare arrays
+        boolean isAnagram = true;
+
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                isAnagram = false;
+                break;
+            }
+        }
+
+        // Step 5: print result
+        if (isAnagram) {
+            System.out.println("Anagram");
+        } else {
+            System.out.println("Not Anagram");
+        }
+    }
+}
