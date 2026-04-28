@@ -1,0 +1,29 @@
+public class DuplicateCharacters {
+    public static void main(String[] args) {
+        String str = "programming";
+
+        char[] ch = str.toCharArray();
+
+        System.out.println("Duplicate characters are:");
+
+        for (int i = 0; i < ch.length; i++) {
+            int count = 1;
+
+            // Skip already checked characters
+            if (ch[i] == ' ') {
+                continue;
+            }
+
+            for (int j = i + 1; j < ch.length; j++) {
+                if (ch[i] == ch[j]) {
+                    count++;
+                    ch[j] = ' '; // mark as visited
+                }
+            }
+
+            if (count > 1) {
+                System.out.println(ch[i]);
+            }
+        }
+    }
+}
