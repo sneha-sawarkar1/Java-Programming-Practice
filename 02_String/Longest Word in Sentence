@@ -1,0 +1,32 @@
+public class LongestWordInSentence {
+    public static void main(String[] args) {
+        String str = "Java is very powerful language";
+
+        String word = "";
+        String longest = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            // Build word
+            if (ch != ' ') {
+                word = word + ch;
+            } else {
+                // Check longest word
+                if (word.length() > longest.length()) {
+                    longest = word;
+                }
+
+                word = ""; // reset
+            }
+        }
+
+        // Check last word
+        if (word.length() > longest.length()) {
+            longest = word;
+        }
+
+        System.out.println("Sentence: " + str);
+        System.out.println("Longest Word: " + longest);
+    }
+}
